@@ -13,11 +13,11 @@
     "mocha": "*",
     "chai": "*",
     "chai-http": "*",
-    "connect": "3.x",
     "coffeelint": "*",
     "istanbul": "*",
     "mocha-lcov-reporter": "*",
-    "coffee-script": "1.7.x"
+    "coffee-script": "1.7.x",
+    "connect": "2.15.x"
   },
   "scripts": {
     "test": "npm run lint && mocha",
