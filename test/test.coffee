@@ -24,7 +24,7 @@ describe 'custom', ->
   before ->
     @app = connect()
             .use((req, res, next)-> next('forced error'))
-            .use(apology(base_path, {error_page: 'custom.html'}))
+            .use(apology(error_page: path.join(base_path, 'custom.html')))
 
   it 'should return custom 404', (done) ->
     chai.request(@app).get('/not-found.html').res (res) ->

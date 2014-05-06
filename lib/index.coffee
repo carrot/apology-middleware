@@ -11,12 +11,10 @@ send    = require 'send'
  * @return {Function} middleware function
 ###
 
-module.exports = (root, opts = {}) ->
-  base = root || process.cwd()
-  page = opts.error_page || path.join('lib', '404.html')
+module.exports = (opts = {}) ->
   opts =
-    error_page: path.join(base, page)
+    error_page: opts.error_page || path.join('lib', '404.html')
 
   return (err, req, res, next) ->
     res.statusCode = 404
-    send(req, opts.error_page).pipe(res)
+    send(req, path.resolve(opts.error_page)).pipe(res)

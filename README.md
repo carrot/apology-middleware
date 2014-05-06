@@ -26,7 +26,7 @@ var http = require('http');
 
 var app = connect()
 
-app.use(apology({error_page: '4oh4.html'})
+app.use(apology({error_page: '/path/to/4oh4.html'})
 app.use(static());
 
 var server = http.createServer(app).listen(1111)
