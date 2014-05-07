@@ -1,19 +1,15 @@
-send    = require 'send'
+send = require 'send'
 
 ###*
  * Configures options and returns a middleware function.
  *
- * Options:
- * - error_page: Path to custom error page. Default 'lib/404.html'
- *
- * @param  {String} root - path to the root directory to server
- * @param  {Object} opts - options object, described above
+ * @param  {String} file - path to custom error page. Default 'lib/404.html'
  * @return {Function} middleware function
 ###
 
-module.exports = (opts = {}) ->
+module.exports = (file) ->
   opts =
-    error_page: opts.error_page || path.join('lib', '404.html')
+    error_page: file || path.join('lib', '404.html')
 
   return (err, req, res, next) ->
     res.statusCode = 404
