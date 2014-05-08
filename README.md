@@ -1,6 +1,7 @@
 # Apology Middleware
 
-[![npm](http://img.shields.io/npm/v/apology-middleware.svg?style=flat)](https://badge.fury.io/js/apology-middleware) [![tests](http://img.shields.io/travis/carrot/apology-middleware/master.svg?style=flat)](https://travis-ci.org/carrot/apology-middleware) [![dependencies](http://img.shields.io/gemnasium/carrot/apology-middleware.svg?style=flat)](https://david-dm.org/carrot/apology-middleware)
+[![npm](http://img.shields.io/npm/v/apology-middleware.svg?style=flat)](https://badge.fury.io/js/apology-middleware) [![tests](http://img.shields.io/travis/carrot/apology-middleware/master.svg?style=flat)](https://travis-ci.org/carrot/apology-middleware)
+[![coverage](http://img.shields.io/coveralls/carrot/apology-middleware.svg?style=flat)](https://coveralls.io/r/carrot/apology-middleware) [![dependencies](http://img.shields.io/gemnasium/carrot/apology-middleware.svg?style=flat)](https://david-dm.org/carrot/apology-middleware)
 
 Middleware for custom error pages
 
