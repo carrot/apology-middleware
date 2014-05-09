@@ -7,12 +7,17 @@ fs = require 'fs'
  * @return {Function} middleware function
 ###
 
-module.exports = (file) ->
-  opts =
-    error_page: file || path.join('lib', '404.html')
+module.exports = (root, file) ->
+  error_page = path.join('lib', '404.html')
+
+  if not file and root
+    error_page = path.resolve(root)
+
+  if file and root
+    error_page = path.join(root, file)
 
   return (err, req, res, next) ->
     res.statusCode = 404
     res.setHeader('Content-Type', 'text/html')
-    res.write(fs.readFileSync(path.resolve(opts.error_page)))
+    res.write(fs.readFileSync(error_page))
     res.end()

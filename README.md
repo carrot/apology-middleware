@@ -17,23 +17,30 @@ Let's say that you are using [connect](https://github.com/senchalabs/connect) to
 
 ### Usage
 
-This library can be used with connect, express, and any other server stack that accepts the same middleware format. A very basic usage example:
+This library can be used with connect, express, and any other server stack that accepts the same middleware format.
+
+There are a few different ways to interact with apology. The first is to simply pass an absolute path to the html file you wish to serve. It should be noted, apology automatically sets the content type as `text/html`.
 
 ```js
 var http = require('http');
     connect = require('connect'),
     apology = require('apology-middleware'),
-    static  = require('serve-static');
+    serveStatic  = require('serve-static');
 
 var app = connect()
-
-app.use(apology('/path/to/4oh4.html')
-app.use(static());
+            .use(apology('/path/to/4oh4.html')
+            .use(serveStatic(__dirname));
 
 var server = http.createServer(app).listen(1111)
 ```
 
-As you can see, you can simply pass an `error_page` object that's value points to the file you wish to serve. If you don't specify an `error_page` or point to one that doesn't exist (404-ception, whoa) then apology will serve our standard error file (don't worry, it's quite handsome).
+Apology can optionally take two arguments, a `root` and a `file`. These two will automatically be joined.
+
+```js
+apology(__dirname, 'custom.html');
+```
+
+If you don't specify a custom error page then apology will serve our standard error file for you (don't worry, it's quite handsome).
 
 ### License & Contributing
 

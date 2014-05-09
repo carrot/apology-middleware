@@ -20,12 +20,25 @@ describe 'basic', ->
       res.text.should.equal(base)
       done()
 
-describe 'custom', ->
+describe 'custom with absolute path', ->
+  before ->
+    custom = path.join(base_path, 'custom.html')
+    @app = connect()
+            .use((req, res, next)-> next('forced error'))
+            .use(apology(custom))
 
+  it 'should return custom 404', (done) ->
+    chai.request(@app).get('/not-found.html').res (res) ->
+      res.should.have.status(404)
+      res.should.be.html
+      res.text.should.equal("<p>custom</p>\n")
+      done()
+
+describe 'custom with root path', ->
   before ->
     @app = connect()
             .use((req, res, next)-> next('forced error'))
-            .use(apology(path.join(base_path, 'custom.html')))
+            .use(apology(base_path, 'custom.html'))
 
   it 'should return custom 404', (done) ->
     chai.request(@app).get('/not-found.html').res (res) ->
