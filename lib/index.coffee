@@ -8,7 +8,7 @@ fs = require 'fs'
 ###
 
 module.exports = (root, file) ->
-  fallback = path.join('lib', '404.html')
+  fallback = path.join(__dirname, '404.html')
   error_page = fallback
 
   if not file and root
