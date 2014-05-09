@@ -29,7 +29,6 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "send": "0.3.x",
-    "coveralls": "~2.10.0"
+    "coveralls": "*"
   }
 }

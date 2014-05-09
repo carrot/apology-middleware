@@ -15,6 +15,7 @@ describe 'basic', ->
   it 'should return default 404', (done) ->
     chai.request(@app).get('/not-found.html').res (res) ->
       res.should.have.status(404)
+      res.should.be.html
       base = fs.readFileSync(path.join(__dirname, '..', 'lib', '404.html'), 'utf8')
       res.text.should.equal(base)
       done()
@@ -29,5 +30,6 @@ describe 'custom', ->
   it 'should return custom 404', (done) ->
     chai.request(@app).get('/not-found.html').res (res) ->
       res.should.have.status(404)
+      res.should.be.html
       res.text.should.equal("<p>custom</p>\n")
       done()

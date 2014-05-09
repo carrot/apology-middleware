@@ -1,4 +1,4 @@
-send = require 'send'
+fs = require 'fs'
 
 ###*
  * Configures options and returns a middleware function.
@@ -13,4 +13,6 @@ module.exports = (file) ->
 
   return (err, req, res, next) ->
     res.statusCode = 404
-    send(req, path.resolve(opts.error_page)).pipe(res)
+    res.setHeader('Content-Type', 'text/html')
+    res.write(fs.readFileSync(path.resolve(opts.error_page)))
+    res.end()
