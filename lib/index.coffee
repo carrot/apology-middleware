@@ -8,7 +8,8 @@ fs = require 'fs'
 ###
 
 module.exports = (root, file) ->
-  error_page = path.join('lib', '404.html')
+  fallback = path.join('lib', '404.html')
+  error_page = fallback
 
   if not file and root
     error_page = path.resolve(root)
@@ -19,5 +20,10 @@ module.exports = (root, file) ->
   return (err, req, res, next) ->
     res.statusCode = 404
     res.setHeader('Content-Type', 'text/html')
-    res.write(fs.readFileSync(error_page))
+
+    if not fs.lstatSync(error_page).isDirectory()
+      res.write(fs.readFileSync(error_page))
+    else
+      res.write(fs.readFileSync(fallback))
+
     res.end()
