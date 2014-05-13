@@ -1,6 +1,6 @@
 {
   "name": "apology-middleware",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Carrot Creative <dev@carrotcreative.com>",
   "description": "middleware for custom error pages",
   "license": "MIT",
