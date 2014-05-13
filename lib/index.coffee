@@ -1,4 +1,5 @@
 fs = require 'fs'
+path = require 'path'
 
 ###*
  * Configures options and returns a middleware function.
