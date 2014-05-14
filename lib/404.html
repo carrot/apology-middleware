@@ -7,6 +7,11 @@
       #main { overflow: hidden; width: 490px; height: 68px; position: absolute; top: -30px; left: 0; right: 0; bottom: 0; margin: auto }
       svg { display: block; float: left }
       h1 { color: #A49E9A; font-weight: 300; float: left; margin: .4em 1em }
+      @media screen and (max-width: 490px) {
+        #main { width: 100%; height: auto; overflow: auto; top: 50%; margin-top: -25%; text-align: center; }
+        svg { float: none; margin: 0 auto; }
+        h1 { margin: .8em 2em; }
+      }
     </style>
   </head>
   <body>
