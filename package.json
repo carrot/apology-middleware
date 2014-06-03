@@ -4,8 +4,7 @@
   "version": "0.0.4",
   "author": "Carrot Creative <dev@carrotcreative.com>",
   "dependencies": {
-    "accepts": "^1.0.2",
-    "coveralls": "*"
+    "accepts": "^1.0.2"
   },
   "devDependencies": {
     "alchemist-middleware": "0.0.4",
@@ -16,6 +15,7 @@
     "coffee-script": "1.7.x",
     "coffeelint": "*",
     "connect": "2.15.x",
+    "coveralls": "*",
     "istanbul": "*",
     "jade": "1.x",
     "marked": "0.3.x",
