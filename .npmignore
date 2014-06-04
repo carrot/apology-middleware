@@ -1,6 +1,7 @@
 test
 src
 Makefile
+assets
 contributing.md
 .editorconfig
 .travis.yml
