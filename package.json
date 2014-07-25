@@ -10,14 +10,15 @@
   },
   "main": "lib",
   "devDependencies": {
-    "mocha": "*",
-    "chai": "*",
-    "chai-http": "*",
-    "coffeelint": "*",
-    "istanbul": "*",
-    "mocha-lcov-reporter": "*",
+    "chai": "1.x",
+    "chai-http": "0.4.x",
     "coffee-script": "1.7.x",
-    "connect": "2.15.x"
+    "coffeelint": "1.x",
+    "connect": "3.x",
+    "coveralls": "2.x",
+    "istanbul": "0.3.x",
+    "mocha": "1.x",
+    "mocha-lcov-reporter": "0.0.1"
   },
   "scripts": {
     "test": "npm run lint && mocha",
@@ -27,8 +28,5 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "dependencies": {
-    "coveralls": "*"
   }
 }
