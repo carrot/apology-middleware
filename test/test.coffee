@@ -13,7 +13,7 @@ describe 'basic', ->
     (-> connect().use(apology())).should.not.throw()
 
   it 'should return default 404', (done) ->
-    chai.request(@app).get('/not-found.html').res (res) ->
+    chai.request(@app).get('/not-found.html').end (res) ->
       res.should.have.status(404)
       res.should.be.html
       base = fs.readFileSync(path.join(__dirname, '..', 'lib', '404.html'), 'utf8')
@@ -28,7 +28,7 @@ describe 'custom with only root path', ->
             .use(apology(base_path))
 
   it 'should return default 404 when only root path is passed', (done) ->
-    chai.request(@app).get('/not-found.html').res (res) ->
+    chai.request(@app).get('/not-found.html').end (res) ->
       res.should.have.status(404)
       res.should.be.html
       base = fs.readFileSync(path.join(__dirname, '..', 'lib', '404.html'), 'utf8')
@@ -43,7 +43,7 @@ describe 'custom with absolute path', ->
             .use(apology(custom))
 
   it 'should return custom 404', (done) ->
-    chai.request(@app).get('/not-found.html').res (res) ->
+    chai.request(@app).get('/not-found.html').end (res) ->
       res.should.have.status(404)
       res.should.be.html
       res.text.should.equal("<p>custom</p>\n")
@@ -56,7 +56,7 @@ describe 'custom with root path and file', ->
             .use(apology(base_path, 'custom.html'))
 
   it 'should return custom 404', (done) ->
-    chai.request(@app).get('/not-found.html').res (res) ->
+    chai.request(@app).get('/not-found.html').end (res) ->
       res.should.have.status(404)
       res.should.be.html
       res.text.should.equal("<p>custom</p>\n")
